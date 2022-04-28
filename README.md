@@ -1,2 +1,6 @@
 # Pokemon
- Trabajo final curso distintas asignaturas
+Aplicacion juego Pokemon - Trabajo DAM
+
+# Autores
+
+Javier Ros Perez
