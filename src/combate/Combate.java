@@ -6,6 +6,7 @@ import pokemon.Pokemon;
 public abstract class Combate {
 
     private Entrenador ganador;
+    private Entrenador perdedor;
     private Entrenador jugador;
     private Entrenador rival;
     private Turnos turno;
@@ -13,9 +14,8 @@ public abstract class Combate {
     private int koJugador;
     private Pokemon pokemonActivo;
 
-    Combate(Entrenador ganador, Entrenador jugador, Entrenador rival, Turnos turno, int koRival, int koJugador,
+    Combate(Entrenador jugador, Entrenador rival, Turnos turno, int koRival, int koJugador,
             Pokemon pokemonActivPokemon) {
-        this.ganador = ganador;
         this.jugador = jugador;
         this.rival = rival;
         this.turno = turno;
@@ -26,6 +26,10 @@ public abstract class Combate {
 
     public Entrenador getGanador() {
         return ganador;
+    }
+
+    public Entrenador getPerdedor() {
+        return perdedor;
     }
 
     public Entrenador getJugador() {
@@ -56,6 +60,10 @@ public abstract class Combate {
         this.ganador = ganador;
     }
 
+    public void setPerdedor(Entrenador perdedor) {
+        this.perdedor = perdedor;
+    }
+
     public void setJugador(Entrenador jugador) {
         this.jugador = jugador;
     }
@@ -79,4 +87,5 @@ public abstract class Combate {
     public void setPokemonActivo(Pokemon pokemonActivo) {
         this.pokemonActivo = pokemonActivo;
     }
+
 }
