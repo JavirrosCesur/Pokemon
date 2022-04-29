@@ -48,6 +48,4 @@ public class Entrenador {
     public void setPokedollar(int pokedollar) {
         this.pokedollar = pokedollar;
     }
-
- 
 }
