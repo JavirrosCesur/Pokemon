@@ -1,4 +1,4 @@
-package Pokemon.src.movimientos;
+package movimientos;
 
 public abstract class Movimiento {
     
