@@ -49,16 +49,5 @@ public class Entrenador {
         this.pokedollar = pokedollar;
     }
 
-    public boolean dejarPokemon(int numero){
-        if(this.equipo.size() < 2){
-            System.out.println("¡Debes tener al menos un pokemon en el equipo!");
-            return false;
-        }
-        if(this.equipo.size() >= 2){
-            this.caja.add(this.equipo.get(numero));
-            System.out.println("Has dejado a " + this.equipo.get(numero).getMote());
-        }
-        return false;
-    }
-
+ 
 }
