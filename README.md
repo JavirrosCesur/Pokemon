@@ -4,3 +4,5 @@ Aplicacion juego Pokemon - Trabajo DAM
 # Autores
 
 Javier Ros Perez
+
+Jose Carlos Moya Martinez
