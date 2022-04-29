@@ -1,4 +1,4 @@
-package Pokemon.src.pokemon;
+package pokemon;
 
 public class Pokemon {
 
@@ -199,59 +199,4 @@ public class Pokemon {
         this.habilidades = habilidades;
     }
 
-    public void ganarExperiencia(int cantidadExperiencia) {
-        this.experiencia = this.experiencia + cantidadExperiencia;
-        this.subirDeNivel();
-    }
-
-    public boolean subirDeNivel() {
-        if (this.experiencia < (this.nivel * 10)) {
-            return false;
-        } else {
-            int subida;
-            System.out.println("¡Tu Pokémon ha subido de nivel!");
-
-            subida = (int) (Math.random() * 3 + 3);
-            System.out.println("Vitalidad + " + subida);
-            this.vitalidad = this.vitalidad + subida;
-
-            subida = (int) (Math.random() * 3 + 1);
-            System.out.println("Estamina + " + subida);
-            this.estamina = this.estamina + subida;
-
-            subida = (int) (Math.random() * 4 + 1);
-            System.out.println("Ataque + " + subida);
-            this.ataque = this.ataque + subida;
-
-            subida = (int) (Math.random() * 4 + 1);
-            System.out.println("Defensa + " + subida);
-            this.defensa = this.defensa + subida;
-
-            subida = (int) (Math.random() * 4 + 1);
-            System.out.println("Ataque especial + " + subida);
-            this.ataqueEspecial = this.ataqueEspecial + subida;
-
-            subida = (int) (Math.random() * 4 + 1);
-            System.out.println("Defensa especial + " + subida);
-            this.defensaEspecial = this.defensaEspecial + subida;
-
-            subida = (int) (Math.random() * 4 + 1);
-            System.out.println("Velocidad + " + subida);
-            this.velocidad = this.velocidad + subida;
-
-            return true;
-        }
-    }
-
-    public boolean usarMovimiento(Movimiento habilidad, Pokemon pokemon) {
-        return false;
-    }
-
-    public void descansar() {
-
-    }
-
-    public void aprenderMovimiento(Movimiento habilidad) {
-
-    }
 }
