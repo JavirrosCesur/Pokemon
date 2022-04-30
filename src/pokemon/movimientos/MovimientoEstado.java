@@ -1,8 +1,8 @@
-package Pokemon.src.pokemon.movimientos;
+package pokemon.movimientos;
 
-import Pokemon.src.pokemon.enumerados.EstadoPrincipal;
-import Pokemon.src.pokemon.enumerados.EstadoSecundario;
-import Pokemon.src.pokemon.enumerados.Tipo;
+import pokemon.enumerados.EstadoPrincipal;
+import pokemon.enumerados.EstadoSecundario;
+import pokemon.enumerados.Tipo;
 
 public class MovimientoEstado extends Movimiento {
 

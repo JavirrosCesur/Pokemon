@@ -1,8 +1,5 @@
-<<<<<<< HEAD:src/enumerados/Tipo.java
-package enumerados;
-=======
-package Pokemon.src.pokemon.enumerados;
->>>>>>> origin/creacion_clase_Pokemon:src/pokemon/enumerados/Tipo.java
+package pokemon.enumerados;
+
 
 public enum Tipo {
     AGUA,

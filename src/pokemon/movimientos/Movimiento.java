@@ -1,6 +1,6 @@
 package pokemon.movimientos;
 
-import Pokemon.src.pokemon.enumerados.Tipo;
+import pokemon.enumerados.Tipo;
 
 public abstract class Movimiento {
     

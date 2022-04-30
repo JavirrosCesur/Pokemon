@@ -1,8 +1,5 @@
-<<<<<<< HEAD:src/enumerados/EstadoSecundario.java
-package enumerados;
-=======
-package Pokemon.src.pokemon.enumerados;
->>>>>>> origin/creacion_clase_Pokemon:src/pokemon/enumerados/EstadoSecundario.java
+package pokemon.enumerados;
+
 
 public enum EstadoSecundario {
     CONFUSO,
