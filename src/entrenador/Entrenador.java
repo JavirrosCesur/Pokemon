@@ -1,10 +1,7 @@
 package entrenador;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-
-import combate.Combate;
 import pokemon.Pokemon;
 
 public class Entrenador {
