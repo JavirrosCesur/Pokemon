@@ -3,6 +3,7 @@ package entrenador;
 import java.util.ArrayList;
 import java.util.Collections;
 import pokemon.Pokemon;
+import pokemon.movimientos.Movimiento;
 
 public class Entrenador {
 
@@ -75,6 +76,10 @@ public class Entrenador {
         return false;
     }
 
+    public void nombrarPokemon(Pokemon pokemon, String nombre) {
+        pokemon.setMote(nombre);
+    }
+
     public boolean capturarPokemon(Pokemon pokemon) {
         int ratio = (int) (Math.random() * 3);
         if (ratio == 0) {
@@ -95,12 +100,8 @@ public class Entrenador {
         }
     }
 
-    public void nombrarPokemon(Pokemon pokemon, String nombre) {
-        pokemon.setMote(nombre);
-    }
-
-    public boolean ordenPokemon(Pokemon pokemon) {
-        return false;
+    public void ordenPokemon(Movimiento habilidad, Pokemon pokemon) {
+        this.equipo.get(0).usarMovimiento(habilidad, pokemon);
     }
 
     public Boolean cambiarPosiciones(int numero) {
@@ -108,7 +109,7 @@ public class Entrenador {
         return true;
     }
 
-    public boolean huirCombate(Entrenador ganador) {
+    public boolean huirCombate() {
         return false;
     }
 
