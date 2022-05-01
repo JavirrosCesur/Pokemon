@@ -129,7 +129,9 @@ public class Pokemon {
     public void setMote(String mote) {
         this.mote = mote;
     }
-    // Métodos necesarios para subir a un Pokemon rival al nivel del nuestro, si es nivel 2 o superior:
+
+    /* Métodos necesarios para subir a un POKEMON rival al nivel del nuestro, si es nivel 2 o superior, aumentando
+    los valores de atributo aleatorios tantas veces como niveles tenga el POKEMON.*/
     public int subirVitalidad(int nivel){
         int sumaVitalidad = 0;
         for(int i = 2; i <= nivel; i++){
@@ -151,6 +153,7 @@ public class Pokemon {
         }
         return sumaAtributos;
     }
+    // Método nivelarNivel, en el que introducimos los métodos anteriores, resultando los valores finales.
     public void nivelarNivel(int nivel){
         this.vitalidadMaxima = this.vitalidadMaxima + this.subirVitalidad(nivel);
         this.estaminaMaxima = this.estaminaMaxima + this.subirEstamina(nivel);
@@ -160,13 +163,15 @@ public class Pokemon {
         this.defensaEspecial = this.defensaEspecial + this.subirAtributos(nivel);
         this.velocidad = this.velocidad + this.subirAtributos(nivel);
     }
-    /* Método setNivel implementando los métodos anteriores y dando un valor válido a la experiencia.
-    Sólo se usará en Pokemon salvajes o de Entrenadores rivales.*/
+
+    /* Método setNivel implementando los métodos anteriores comentados y dando un valor válido a la experiencia.
+    Sólo se usará en Pokemon salvajes o de Entrenadores rivales... o para hacer trampa.*/
     public void setNivel(int nivel) {
         this.nivel = nivel;
         this.nivelarNivel(nivel);
         this.experiencia = ((this.nivel - 1) * 10) + 1;
     }
+
     public void setExperiencia(int experiencia) {
         this.experiencia = experiencia;
     }
@@ -225,11 +230,15 @@ public class Pokemon {
         this.habilidades = habilidades;
     }
 
+    // Método ganarExperiencia para un uso adecuado de ésta. Implementa el método subirDeNivel, explicado abajo.
     public void ganarExperiencia(int cantidadExperiencia){
         this.experiencia = this.experiencia + cantidadExperiencia;
         this.subirDeNivel();
     }
 
+    /* Método subirDeNivel, aplicando los algoritmos necesarios para la subida de nivel tras ganar experiencia.
+    A diferencia de setNivel y nivelarNivel, este método se usa para los POKEMON del jugador, para su desarrollo "normal"
+    tras un combate o un entrenamiento. Incluye información para el jugador sobre los aumentos de estadísticas.*/
     public boolean subirDeNivel(){
         if(this.experiencia < (this.nivel * 10)){
             return false;
@@ -270,10 +279,194 @@ public class Pokemon {
         }
     }
 
-    public boolean usarMovimiento(Movimiento habilidad, Pokemon pokemon){
-        if(habilidad.getTipoMovimiento() == Tipo.AGUA && pokemon.getTipo1() == Tipo.AGUA){
+    // Método resultadoMovimientoAtaque para resolver habilidades de la clase MovimientoAtaque.
+    public void resultadoMovimientoAtaque(MovimientoAtaque habilidad, Pokemon pokemon){
+
+        if(habilidad.getTipoMovimiento() == Tipo.ACERO && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.AGUA
+        || pokemon.getTipo1() == Tipo.ELECTRICO || pokemon.getTipo1() == Tipo.FUEGO){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.ACERO && pokemon.getTipo1() == Tipo.HADA || pokemon.getTipo1() == Tipo.HIELO
+        || pokemon.getTipo1() == Tipo.ROCA){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.AGUA && pokemon.getTipo1() == Tipo.AGUA || pokemon.getTipo1() == Tipo.DRAGON
+        || pokemon.getTipo1() == Tipo.PLANTA){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.AGUA && pokemon.getTipo1() == Tipo.FUEGO || pokemon.getTipo1() == Tipo.ROCA
+        || pokemon.getTipo1() == Tipo.TIERRA){
+            // Es muy efectivo.
+            
+        }else if(habilidad.getTipoMovimiento() == Tipo.BICHO && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.FANTASMA
+        || pokemon.getTipo1() == Tipo.FUEGO || pokemon.getTipo1() == Tipo.HADA || pokemon.getTipo1() == Tipo.LUCHA
+        || pokemon.getTipo1() == Tipo.VENENO || pokemon.getTipo1() == Tipo.VOLADOR){
+            // Es poco efectivo.
+        
+        }else if(habilidad.getTipoMovimiento() == Tipo.BICHO && pokemon.getTipo1() == Tipo.PLANTA || pokemon.getTipo1() == Tipo.PSIQUICO
+        || pokemon.getTipo1() == Tipo.SINIESTRO){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo1() == Tipo.HADA){
+            // NO HACE EFECTO.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo1() == Tipo.ACERO){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo1() == Tipo.DRAGON){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo1() == Tipo.TIERRA){
+            // NO HACE EFECTO.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo1() == Tipo.DRAGON || pokemon.getTipo1() == Tipo.ELECTRICO
+        || pokemon.getTipo1() == Tipo.PLANTA){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo1() == Tipo.AGUA || pokemon.getTipo1() == Tipo.VOLADOR){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo1() == Tipo.NORMAL){
+            // NO HACE EFECTO.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo1() == Tipo.SINIESTRO){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo1() == Tipo.FANTASMA
+        || pokemon.getTipo1() == Tipo.PSIQUICO){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.FUEGO && pokemon.getTipo1() == Tipo.AGUA || pokemon.getTipo1() == Tipo.DRAGON
+        || pokemon.getTipo1() == Tipo.FUEGO || pokemon.getTipo1() == Tipo.ROCA){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.FUEGO && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.BICHO
+        || pokemon.getTipo1() == Tipo.HIELO || pokemon.getTipo1() == Tipo.PLANTA){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.HADA && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.FUEGO
+        || pokemon.getTipo1() == Tipo.VENENO){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.HADA && pokemon.getTipo1() == Tipo.DRAGON || pokemon.getTipo1() == Tipo.LUCHA
+        || pokemon.getTipo1() == Tipo.SINIESTRO){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.HIELO && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.AGUA
+        || pokemon.getTipo1() == Tipo.FUEGO || pokemon.getTipo1() == Tipo.HIELO){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.HIELO && pokemon.getTipo1() == Tipo.DRAGON || pokemon.getTipo1() == Tipo.PLANTA
+        || pokemon.getTipo1() == Tipo.TIERRA || pokemon.getTipo1() == Tipo.VOLADOR){
+            // Es muy efectivo.
+            
+        }else if(habilidad.getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo1() == Tipo.FANTASMA){
+            // NO HACE EFECTO.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo1() == Tipo.BICHO || pokemon.getTipo1() == Tipo.HADA
+        || pokemon.getTipo1() == Tipo.PSIQUICO || pokemon.getTipo1() == Tipo.VENENO || pokemon.getTipo1() == Tipo.VOLADOR){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.HIELO
+        || pokemon.getTipo1() == Tipo.NORMAL || pokemon.getTipo1() == Tipo.ROCA || pokemon.getTipo1() == Tipo.SINIESTRO){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.NORMAL && pokemon.getTipo1() == Tipo.FANTASMA){
+            // NO HACE EFECTO.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.NORMAL && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.ROCA){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.PLANTA && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.BICHO
+        || pokemon.getTipo1() == Tipo.DRAGON || pokemon.getTipo1() == Tipo.FUEGO || pokemon.getTipo1() == Tipo.PLANTA
+        || pokemon.getTipo1() == Tipo.VENENO || pokemon.getTipo1() == Tipo.VOLADOR){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.PLANTA && pokemon.getTipo1() == Tipo.AGUA || pokemon.getTipo1() == Tipo.ROCA
+        || pokemon.getTipo1() == Tipo.TIERRA){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo1() == Tipo.SINIESTRO){
+            // NO HACE EFECTO.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.PSIQUICO){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo1() == Tipo.LUCHA || pokemon.getTipo1() == Tipo.VENENO){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.ROCA && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.LUCHA
+        || pokemon.getTipo1() == Tipo.TIERRA){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.ROCA && pokemon.getTipo1() == Tipo.BICHO || pokemon.getTipo1() == Tipo.FUEGO
+        || pokemon.getTipo1() == Tipo.HIELO || pokemon.getTipo1() == Tipo.VOLADOR){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.SINIESTRO && pokemon.getTipo1() == Tipo.HADA || pokemon.getTipo1() == Tipo.LUCHA
+        || pokemon.getTipo1() == Tipo.SINIESTRO){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.SINIESTRO && pokemon.getTipo1() == Tipo.FANTASMA || pokemon.getTipo1() == Tipo.PSIQUICO){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo1() == Tipo.VOLADOR){
+            // NO HACE EFECTO.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo1() == Tipo.BICHO || pokemon.getTipo1() == Tipo.PLANTA){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.ELECTRICO
+        || pokemon.getTipo1() == Tipo.FUEGO || pokemon.getTipo1() == Tipo.ROCA || pokemon.getTipo1() == Tipo.VENENO){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo1() == Tipo.ACERO){
+            // NO HACE EFECTO.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo1() == Tipo.FANTASMA || pokemon.getTipo1() == Tipo.ROCA
+        || pokemon.getTipo1() == Tipo.TIERRA || pokemon.getTipo1() == Tipo.VENENO){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo1() == Tipo.HADA || pokemon.getTipo1() == Tipo.PLANTA){
+            // Es muy efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.VOLADOR && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.ELECTRICO
+        || pokemon.getTipo1() == Tipo.ROCA){
+            // Es poco efectivo.
+
+        }else if(habilidad.getTipoMovimiento() == Tipo.VOLADOR && pokemon.getTipo1() == Tipo.BICHO || pokemon.getTipo1() == Tipo.LUCHA
+        || pokemon.getTipo1() == Tipo.PLANTA){
+            // Es muy efectivo.
+
+        }else{
+            // Normal.
         }
+    }
+
+    // Método resultadoMovimientoEstado para resolver habilidades de la clase MovimientoEstado.
+    public boolean resultadoMovimientoEstado(MovimientoEstado habilidad, Pokemon pokemon){
         return false;
+    }
+
+    // Método resultadoMovimientoMejora para resolver habilidades de la clase MovimientoMejora.
+    public void resultadoMovimientoMejora(MovimientoMejora habilidad, Pokemon pokemon){
+
+    }
+
+    // El método usarMovimiento utiliza "instanceof" para actuar en consecuencia con el tipo de Movimiento usado.
+    public boolean usarMovimiento(int numHab, Pokemon pokemon){
+        if(this.estaminaActual < this.habilidades.get(numHab).getConsumo()){
+            return false;
+        }else{
+            System.out.println(this.getMote() + " usó " + this.habilidades.get(numHab).getNombreHabilidad() + "...");
+            if(this.habilidades.get(numHab) instanceof MovimientoAtaque){
+                this.resultadoMovimientoAtaque((MovimientoAtaque) this.habilidades.get(numHab), pokemon);
+
+            }else if(this.habilidades.get(numHab) instanceof MovimientoEstado){
+
+            }
+            return true;
+        }
     }
 
     public void descansar(){

@@ -1,12 +1,23 @@
 package Pokemon.src.pokemon.enumerados;
 
 public enum Tipo {
+    ACERO,
     AGUA,
-    FUEGO,
-    PLANTA,
+    BICHO,
+    DRAGON,
     ELECTRICO,
-    VOLADOR,
-    ROCA,
+    FANTASMA,
+    FUEGO,
+    HADA,
+    HIELO,
+    LUCHA,
     NORMAL,
+    PLANTA,
+    PSIQUICO,
+    ROCA,
+    SINIESTRO,
+    TIERRA,
+    VENENO,
+    VOLADOR,
     NINGUNO
 }

@@ -1,0 +1,14 @@
+CAMBIOS Y/O FUNCIONES A IMPLEMENTAR SI SOBRA TIEMPO:
+
+- EXPERIENCIA:
+Ningún Pokemon puede subir más de nivel 100, y al llegar a nivel 100 dejará de ganar experiencia.
+El algoritmo de experiencia necesaria para subir de nivel debe estar mejor planteado que nivel*10.
+
+- MÉTODOS:
+Aplicar métodos más básicos y set... a los más complejos, para optimizar código.
+Cambiar método setVitalidad y setEstamina (y los que correspondan) por "administrarVitalidad", para resolver mejor en los
+métodos de Movimientos y Combates.
+
+En resultadoMovimientoAtaque debería añadir un contador de potencia, para que el resultado total y el texto de efectividad se haga todo al final: int contadorPotencia = 1;
+                    los valores 2 y 4 serían la multiplicación por efectividad
+                    los valores 0,5 y 0,25 serían la multiplicación por no efectividad.
