@@ -61,7 +61,8 @@ public class CombateEntrenador extends Combate {
         this.koJugador = koJugador;
     }
 
-    public void koPokemon(Pokemon pokemon){
+    public void koPokemon(){
+        //hace falta metodo de la clase entrenador
     }
 
     public void checkGanador() {

@@ -38,6 +38,7 @@ public abstract class Combate {
 
     public void setPokemonActivo() {
         this.pokemonActivo = this.jugador.getEquipo().get(0);
+        //Cambiar por metodo de la clase entrenador
     }
 
 
