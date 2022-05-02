@@ -10,5 +10,11 @@ public class CombateSalvaje extends Combate{
         super(jugador, rival, turno, koRival, koJugador, pokemonActivPokemon);
     }
 
+    @Override
+    public boolean huir() {
+        System.out.println("¡Has escapado con  exito!");
+        return true;
+    }
+
 
 }

@@ -88,4 +88,6 @@ public abstract class Combate {
         this.pokemonActivo = pokemonActivo;
     }
 
+    public abstract boolean huir();
+
 }
