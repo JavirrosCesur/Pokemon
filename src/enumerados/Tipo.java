@@ -1,4 +1,4 @@
-package Pokemon.src.enumerados;
+package enumerados;
 
 public enum Tipo {
     AGUA,

@@ -6,3 +6,5 @@ Aplicacion juego Pokemon - Trabajo DAM
 Javier Ros Perez
 
 Jose Carlos Moya Martinez
+
+Jorge Adrián Pagés Sánchez
