@@ -11,11 +11,14 @@ public class Entrenador {
     private ArrayList<Pokemon> equipo;
     private ArrayList<Pokemon> caja;
     private int pokedollar;
+    private Pokemon primerPokemon;
 
-    Entrenador(String nombre, ArrayList<Pokemon> equipo, ArrayList<Pokemon> caja) {
+    Entrenador(String nombre, ArrayList<Pokemon> equipo, ArrayList<Pokemon> caja, Pokemon primerPokemon) {
         this.nombre = nombre;
         this.equipo = equipo;
         this.caja = caja;
+        this.primerPokemon = primerPokemon;
+        ;
         this.pokedollar = (int) (Math.random() * 201 + 800);
     }
 
@@ -29,6 +32,10 @@ public class Entrenador {
 
     public ArrayList<Pokemon> getCaja() {
         return caja;
+    }
+
+    public Pokemon getPrimerPokemon() {
+        return primerPokemon;
     }
 
     public int getPokedollar() {
@@ -45,6 +52,10 @@ public class Entrenador {
 
     public void setCaja(ArrayList<Pokemon> caja) {
         this.caja = caja;
+    }
+
+    public void setPrimerPokemon(Pokemon primerPokemon) {
+        this.primerPokemon = primerPokemon;
     }
 
     public void setPokedollar(int pokedollar) {
@@ -101,7 +112,7 @@ public class Entrenador {
     }
 
     public void ordenPokemon(Movimiento habilidad, Pokemon pokemon) {
-        this.equipo.get(0).usarMovimiento(habilidad, pokemon);
+        this.primerPokemon().usarMovimiento(habilidad, pokemon);
     }
 
     public Boolean cambiarPosiciones(int numero) {
@@ -109,8 +120,36 @@ public class Entrenador {
         return true;
     }
 
-    public boolean huirCombate() {
-        return false;
+    public void huirCombate() {
+        //llamara al metodo huir de la clase combate
+    }
+
+    public Pokemon primerPokemon() {
+        if (this.equipo.get(0).getVitalidadActual() > 0) {
+            this.primerPokemon = this.equipo.get(0);
+        }
+
+        else {
+            if (this.equipo.get(1).getVitalidadActual() > 0) {
+                this.primerPokemon = this.equipo.get(1);
+            }
+
+            else {
+                if (this.equipo.get(2).getVitalidadActual() > 0) {
+                    this.primerPokemon = this.equipo.get(2);
+                }
+
+                else {
+                    if (this.equipo.get(3).getVitalidadActual() > 0) {
+                        this.primerPokemon = this.equipo.get(3);
+
+                    }
+                }
+            }
+        }
+
+        return primerPokemon;
+
     }
 
 }
