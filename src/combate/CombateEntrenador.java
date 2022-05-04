@@ -12,13 +12,13 @@ public class CombateEntrenador extends Combate {
     private int koJugador;
 
     CombateEntrenador(Entrenador jugador, Turnos turno, Pokemon pokemonActivPokemon, Entrenador ganador,
-            Entrenador perdedor, Entrenador rival, int koRival, int koJugador) {
+            Entrenador perdedor, Entrenador rival) {
         super(jugador, turno, pokemonActivPokemon);
         this.ganador = ganador;
         this.perdedor = perdedor;
         this.rival = rival;
-        this.koRival = koRival;
-        this.koJugador = koJugador;
+        this.koRival = 0;
+        this.koJugador = 0;
     }
 
     public Entrenador getGanador() {
@@ -62,7 +62,12 @@ public class CombateEntrenador extends Combate {
     }
 
     public void koPokemon(){
-        //hace falta metodo de la clase entrenador
+        if(this.getJugador().getPrimerPokemon().getVitalidadActual() == 0){
+            this.koRival++;
+        }
+        else if(this.rival.getPrimerPokemon().getVitalidadActual() == 0){
+            this.koJugador++;
+        }
     }
 
     public void checkGanador() {
