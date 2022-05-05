@@ -328,6 +328,7 @@ public class Pokemon {
 
     public boolean usarMovimiento(Movimiento habilidad, Pokemon pokemon) {
         if (habilidad.getTipoMovimiento() == Tipo.AGUA && pokemon.getTipo1() == Tipo.AGUA) {
+            System.out.println("si");
         }
         return false;
     }

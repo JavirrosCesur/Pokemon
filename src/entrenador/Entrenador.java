@@ -13,7 +13,7 @@ public class Entrenador {
     private int pokedollar;
     private Pokemon primerPokemon;
 
-    Entrenador(String nombre, ArrayList<Pokemon> equipo, ArrayList<Pokemon> caja, Pokemon primerPokemon) {
+    public Entrenador(String nombre, ArrayList<Pokemon> equipo, ArrayList<Pokemon> caja, Pokemon primerPokemon) {
         this.nombre = nombre;
         this.equipo = equipo;
         this.caja = caja;
@@ -76,14 +76,21 @@ public class Entrenador {
     }
 
     public boolean sacarPokemon(int numero) {
-        if (equipo.size() == 4) {
-            System.out.println("No puedes llevar mas pokemons");
+        if(this.caja.size() == 0){
+            System.out.println("No tienes pokemons en la caja.");
             return false;
-        } else if (equipo.size() <= 3) {
-            this.equipo.add(this.caja.get(numero));
-            return true;
         }
-        return false;
+        else{
+            if (this.equipo.size() == 4) {
+                System.out.println("No puedes llevar mas pokemons");
+                return false;
+            } else if (this.equipo.size() <= 3) {
+                this.equipo.add(this.caja.get(numero));
+                System.out.println(this.caja.get(numero).getMote() + " fue añadido al equipo.");
+                return true;
+            }
+            return false;
+        }
     }
 
     public void nombrarPokemon(Pokemon pokemon, String nombre) {
@@ -105,7 +112,7 @@ public class Entrenador {
                 System.out.println(pokemon.getNombre() + " ha sido añadido a tu equipo.");
             }
             System.out.println("Ponle un mote a tu pokemon: ");
-            this.nombrarPokemon(pokemon, nombre);
+            nombrarPokemon(pokemon, nombre);
             return true;
         }
     }
@@ -120,7 +127,7 @@ public class Entrenador {
     }
 
     public void huirCombate() {
-        //llamara al metodo huir de la clase Combate
+        // llamara al metodo huir de la clase Combate
     }
 
     public Pokemon primerPokemon() {
@@ -151,9 +158,17 @@ public class Entrenador {
 
     }
 
-    public void cambiarMovimientos(Movimiento habilidad){
+    public void cambiarMovimientos(Movimiento habilidad) {
         this.primerPokemon.aprenderMovimiento(habilidad);
     }
 
-}
+    public String recuperacion(){
+        this.getEquipo().get(0).descansar();
+        this.getEquipo().get(1).descansar();
+        this.getEquipo().get(2).descansar();
+        this.getEquipo().get(3).descansar();
 
+        return "Tu equipo esta fresco como una rosa.";
+    }
+
+}
