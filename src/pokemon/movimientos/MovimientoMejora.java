@@ -9,7 +9,7 @@ public class MovimientoMejora extends Movimiento {
     private Mejora buff;
 
     public MovimientoMejora(int numHabilidad, String nombreHabilidad, Tipo tipoMovimiento, int consumo, 
-    float precision, int contadorTurno, Mejora buff) {
+    int precision, int contadorTurno, Mejora buff) {
         super(numHabilidad, nombreHabilidad, tipoMovimiento, consumo, precision);
         this.contadorTurno = contadorTurno;
         this.buff = buff;

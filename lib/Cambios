@@ -9,6 +9,4 @@ Aplicar métodos más básicos y set... a los más complejos, para optimizar có
 Cambiar método setVitalidad y setEstamina (y los que correspondan) por "administrarVitalidad", para resolver mejor en los
 métodos de Movimientos y Combates.
 
-En resultadoMovimientoAtaque debería añadir un contador de potencia, para que el resultado total y el texto de efectividad se haga todo al final: int contadorPotencia = 1;
-                    los valores 2 y 4 serían la multiplicación por efectividad
-                    los valores 0,5 y 0,25 serían la multiplicación por no efectividad.
+En resultadoMovimientoAtaque añadirá contadores 0, 1, 0.5 y 2 para los potenciadores de efectividad.

@@ -8,9 +8,9 @@ public abstract class Movimiento {
     private String nombreHabilidad;
     private Tipo tipoMovimiento;
     private int consumo;
-    private float precision;
+    private int precision;
 
-    public Movimiento(int numHabilidad, String nombreHabilidad, Tipo tipoMovimiento, int consumo, float precision){
+    public Movimiento(int numHabilidad, String nombreHabilidad, Tipo tipoMovimiento, int consumo, int precision){
         this.numHabilidad = numHabilidad;
         this.nombreHabilidad = nombreHabilidad;
         this.tipoMovimiento = tipoMovimiento;

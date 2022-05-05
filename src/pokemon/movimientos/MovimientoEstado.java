@@ -11,7 +11,7 @@ public class MovimientoEstado extends Movimiento {
     private EstadoSecundario estadoSecundario;
 
     public MovimientoEstado(int numHabilidad, String nombreHabilidad, Tipo tipoMovimiento, int consumo, 
-    float precision, int contadorTurno, EstadoPrincipal estadoPrincipal, EstadoSecundario estadoSecundario) {
+    int precision, int contadorTurno, EstadoPrincipal estadoPrincipal, EstadoSecundario estadoSecundario) {
         super(numHabilidad, nombreHabilidad, tipoMovimiento, consumo, precision);
         this.contadorTurno = contadorTurno;
         this.estadoPrincipal = estadoPrincipal;
