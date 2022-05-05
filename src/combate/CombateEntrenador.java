@@ -1,7 +1,6 @@
 package combate;
 
 import entrenador.Entrenador;
-import pokemon.Pokemon;
 
 public class CombateEntrenador extends Combate {
 
@@ -11,9 +10,9 @@ public class CombateEntrenador extends Combate {
     private int koRival;
     private int koJugador;
 
-    CombateEntrenador(Entrenador jugador, Turnos turno, Pokemon pokemonActivPokemon, Entrenador ganador,
+    CombateEntrenador(Entrenador jugador, Turnos turno, Entrenador ganador,
             Entrenador perdedor, Entrenador rival) {
-        super(jugador, turno, pokemonActivPokemon);
+        super(jugador, turno);
         this.ganador = ganador;
         this.perdedor = perdedor;
         this.rival = rival;

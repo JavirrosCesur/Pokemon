@@ -18,7 +18,6 @@ public class Entrenador {
         this.equipo = equipo;
         this.caja = caja;
         this.primerPokemon = primerPokemon;
-        ;
         this.pokedollar = (int) (Math.random() * 201 + 800);
     }
 
@@ -121,7 +120,7 @@ public class Entrenador {
     }
 
     public void huirCombate() {
-        //llamara al metodo huir de la clase combate
+        //llamara al metodo huir de la clase Combate
     }
 
     public Pokemon primerPokemon() {
@@ -150,6 +149,10 @@ public class Entrenador {
 
         return primerPokemon;
 
+    }
+
+    public void cambiarMovimientos(Movimiento habilidad){
+        this.primerPokemon.aprenderMovimiento(habilidad);
     }
 
 }

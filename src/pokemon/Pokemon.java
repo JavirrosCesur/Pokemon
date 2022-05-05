@@ -339,6 +339,13 @@ public class Pokemon {
     }
 
     public boolean aprenderMovimiento(Movimiento habilidad) {
+        if(this.habilidades.size() == 4){
+            System.out.println("Debes olvidar un Movimiento para aprender " + habilidad.getNombreHabilidad());
+            // Olvidar y aprender.
+        }else{
+            this.habilidades.add(habilidad);
+            System.out.println(this.getMote() + " aprendió " + habilidad.getNombreHabilidad());
+        }
         return false;
     }
 }
