@@ -52,14 +52,6 @@ public abstract class Combate {
 
     }
 
-    public Entrenador getGanador() {
-        return ganador;
-    }
-
-    public Entrenador getPerdedor() {
-        return perdedor;
-    }
-
     public Entrenador getJugador() {
         return jugador;
     }
@@ -69,16 +61,12 @@ public abstract class Combate {
     }
 
 
+    public Turnos getTurno() {
+        return turno;
+    }
+
     public Pokemon getPokemonActivo() {
         return pokemonActivo;
-    }
-
-    public void setGanador(Entrenador ganador) {
-        this.ganador = ganador;
-    }
-
-    public void setPerdedor(Entrenador perdedor) {
-        this.perdedor = perdedor;
     }
 
     public void setJugador(Entrenador jugador) {
@@ -91,14 +79,16 @@ public abstract class Combate {
 
     public void setKoRival(int koRival) {
         this.koRival = koRival;
+    public void setTurno(Turnos turno) {
+        this.turno = turno;
     }
 
-    public void setKoJugador(int koJugador) {
-        this.koJugador = koJugador;
+    public void setPokemonActivo() {
+        this.pokemonActivo = this.jugador.getEquipo().get(0);
+        //Cambiar por metodo de la clase entrenador
     }
 
-    public void setPokemonActivo(Pokemon pokemonActivo) {
-        this.pokemonActivo = pokemonActivo;
-    }
+
+    public abstract boolean huir();
 
 }
