@@ -15,18 +15,31 @@ public class Pokemon {
     private int estaminaMaxima;
     private int estaminaActual;
     private int ataque;
+    private int ataqueMejora;
     private int defensa;
+    private int defensaMejora;
     private int ataqueEspecial;
+    private int ataqueEspecialMejora;
     private int defensaEspecial;
+    private int defensaEspecialMejora;
     private int velocidad;
+    private int velocidadMejora;
     private int fertilidad;
     private Genero genero;
     private Tipo tipo1;
     private Tipo tipo2;
     private EstadoPrincipal estadoPrincipal;
     private EstadoSecundario estadoSecundario;
+    private int contadorEstadoP;
+    private int contadorEstadoS;
     private Mejora mejora1;
     private Mejora mejora2;
+    private int contadorMejoraAtaque;
+    private int contadorMejoraDefensa;
+    private int contadorMejoraAtEspecial;
+    private int contadorMejoraDefEspecial;
+    private int contadorMejoraVelocidad;
+
     private ArrayList<Movimiento> habilidades;
 
     public Pokemon(String nombre, String mote, int experiencia, int vitalidadMaxima, int estaminaMaxima, int ataque, int defensa, 
@@ -41,18 +54,30 @@ public class Pokemon {
         this.estaminaMaxima = estaminaMaxima;
         this.estaminaActual = estaminaMaxima;
         this.ataque = ataque;
+        this.ataqueMejora = 0;
         this.defensa = defensa;
+        this.defensaMejora = 0;
         this.ataqueEspecial = ataqueEspecial;
+        this.ataqueEspecialMejora = 0;
         this.defensaEspecial = defensaEspecial;
+        this.defensaEspecialMejora = 0;
         this.velocidad = velocidad;
+        this.velocidadMejora = 0;
         this.fertilidad = 5;
         this.genero = genero;
         this.tipo1 = tipo1;
         this.tipo2 = tipo2;
         this.estadoPrincipal = EstadoPrincipal.NINGUNO;
         this.estadoSecundario = EstadoSecundario.NINGUNO;
+        this.contadorEstadoP = 0;
+        this.contadorEstadoS = 0;
         this.mejora1 = Mejora.NINGUNO;
         this.mejora2 = Mejora.NINGUNO;
+        this.contadorMejoraAtaque = 0;
+        this.contadorMejoraDefensa = 0;
+        this.contadorMejoraAtEspecial = 0;
+        this.contadorMejoraDefEspecial = 0;
+        this.contadorMejoraVelocidad = 0;
         this.habilidades = new ArrayList<Movimiento>();
     }
 
@@ -83,17 +108,32 @@ public class Pokemon {
     public int getAtaque() {
         return ataque;
     }
+    public int getAtaqueMejora() {
+        return ataqueMejora;
+    }
     public int getDefensa() {
         return defensa;
+    }
+    public int getDefensaMejora() {
+        return defensaMejora;
     }
     public int getAtaqueEspecial() {
         return ataqueEspecial;
     }
+    public int getAtaqueEspecialMejora() {
+        return ataqueEspecialMejora;
+    }
     public int getDefensaEspecial() {
         return defensaEspecial;
     }
+    public int getDefensaEspecialMejora() {
+        return defensaEspecialMejora;
+    }
     public int getVelocidad() {
         return velocidad;
+    }
+    public int getVelocidadMejora() {
+        return velocidadMejora;
     }
     public int getFertilidad() {
         return fertilidad;
@@ -113,11 +153,32 @@ public class Pokemon {
     public EstadoSecundario getEstadoSecundario() {
         return estadoSecundario;
     }
+    public int getContadorEstadoP() {
+        return contadorEstadoP;
+    }
+    public int getContadorEstadoS() {
+        return contadorEstadoS;
+    }
     public Mejora getMejora1() {
         return mejora1;
     }
     public Mejora getMejora2() {
         return mejora2;
+    }
+    public int getContadorMejoraAtaque() {
+        return contadorMejoraAtaque;
+    }
+    public int getContadorMejoraDefensa() {
+        return contadorMejoraDefensa;
+    }
+    public int getContadorMejoraAtEspecial() {
+        return contadorMejoraAtEspecial;
+    }
+    public int getContadorMejoraDefEspecial() {
+        return contadorMejoraDefEspecial;
+    }
+    public int getContadorMejoraVelocidad() {
+        return contadorMejoraVelocidad;
     }
     public ArrayList<Movimiento> getHabilidades() {
         return habilidades;
@@ -180,6 +241,7 @@ public class Pokemon {
     }
     public void setVitalidadActual(int vitalidadActual) {
         this.vitalidadActual = vitalidadActual;
+        this.gestionarVitalidad(); // Implementado en 'set' para que sea más directo.
     }
     public void setEstaminaMaxima(int estaminaMaxima) {
         this.estaminaMaxima = estaminaMaxima;
@@ -190,17 +252,32 @@ public class Pokemon {
     public void setAtaque(int ataque) {
         this.ataque = ataque;
     }
+    public void setAtaqueMejora(int ataqueMejora) {
+        this.ataqueMejora = ataqueMejora;
+    }
     public void setDefensa(int defensa) {
         this.defensa = defensa;
+    }
+    public void setDefensaMejora(int defensaMejora) {
+        this.defensaMejora = defensaMejora;
     }
     public void setAtaqueEspecial(int ataqueEspecial) {
         this.ataqueEspecial = ataqueEspecial;
     }
+    public void setAtaqueEspecialMejora(int ataqueEspecialMejora) {
+        this.ataqueEspecialMejora = ataqueEspecialMejora;
+    }
     public void setDefensaEspecial(int defensaEspecial) {
         this.defensaEspecial = defensaEspecial;
     }
+    public void setDefensaEspecialMejora(int defensaEspecialMejora) {
+        this.defensaEspecialMejora = defensaEspecialMejora;
+    }
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
+    }
+    public void setVelocidadMejora(int velocidadMejora) {
+        this.velocidadMejora = velocidadMejora;
     }
     public void setFertilidad(int fertilidad) {
         this.fertilidad = fertilidad;
@@ -220,11 +297,32 @@ public class Pokemon {
     public void setEstadoSecundario(EstadoSecundario estadoSecundario) {
         this.estadoSecundario = estadoSecundario;
     }
+    public void setContadorEstadoP(int contadorEstadoP) {
+        this.contadorEstadoP = contadorEstadoP;
+    }
+    public void setContadorEstadoS(int contadorEstadoS) {
+        this.contadorEstadoS = contadorEstadoS;
+    }
     public void setMejora1(Mejora mejora1) {
         this.mejora1 = mejora1;
     }
     public void setMejora2(Mejora mejora2) {
         this.mejora2 = mejora2;
+    }
+    public void setContadorMejoraAtaque(int contadorMejoraAtaque) {
+        this.contadorMejoraAtaque = contadorMejoraAtaque;
+    }
+    public void setContadorMejoraDefensa(int contadorMejoraDefensa) {
+        this.contadorMejoraDefensa = contadorMejoraDefensa;
+    }
+    public void setContadorMejoraAtEspecial(int contadorMejoraAtEspecial) {
+        this.contadorMejoraAtEspecial = contadorMejoraAtEspecial;
+    }
+    public void setContadorMejoraDefEspecial(int contadorMejoraDefEspecial) {
+        this.contadorMejoraDefEspecial = contadorMejoraDefEspecial;
+    }
+    public void setContadorMejoraVelocidad(int contadorMejoraVelocidad) {
+        this.contadorMejoraVelocidad = contadorMejoraVelocidad;
     }
     public void setHabilidades(ArrayList<Movimiento> habilidades) {
         this.habilidades = habilidades;
@@ -279,10 +377,20 @@ public class Pokemon {
         }
     }
 
+    // Método para gestionar la vitalidadActual de los POKEMON.
+    public void gestionarVitalidad(){
+        if(this.vitalidadActual < 0){
+            this.vitalidadActual = 0;
+        }else if(this.vitalidadActual > this.vitalidadMaxima){
+            this.vitalidadActual = vitalidadMaxima;
+        }
+    }
+
     // Método resultadoMovimientoAtaque para resolver habilidades de la clase MovimientoAtaque.
-    public float resultadoMovimientoAtaque(MovimientoAtaque habilidad, Pokemon pokemon){
+    public void resultadoMovimientoAtaque(MovimientoAtaque habilidad, Pokemon pokemon){
         float ventaja1;
         float ventaja2;
+        float ventajaTotal;
 
         if(habilidad.getTipoMovimiento() == Tipo.ACERO && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.AGUA
         || pokemon.getTipo1() == Tipo.ELECTRICO || pokemon.getTipo1() == Tipo.FUEGO){
@@ -712,7 +820,15 @@ public class Pokemon {
             ventaja2 = 1f;
         }
 
-        return ventaja1 * ventaja2;
+        ventajaTotal = ventaja1 * ventaja2;
+
+        if(habilidad.getFisEsp() == FisicoEspecial.FISICO){
+            pokemon.setVitalidadActual(pokemon.getVitalidadActual() - 
+            (((int)(habilidad.getPotencia() * ventajaTotal) + this.getAtaque() - pokemon.getDefensa())));
+        }else{
+            pokemon.setVitalidadActual(pokemon.getVitalidadActual() - 
+            (((int)(habilidad.getPotencia() * ventajaTotal) + this.getAtaqueEspecial() - pokemon.getDefensaEspecial())));
+        }
     }
 
     // Método resultadoMovimientoEstado para resolver habilidades de la clase MovimientoEstado.
@@ -738,16 +854,23 @@ public class Pokemon {
             // No afecta.
 
         }else{
-            pokemon.setEstadoPrincipal(habilidad.getEstadoPrincipal());
-            pokemon.setEstadoSecundario(habilidad.getEstadoSecundario());
+            if(habilidad.getEstadoPrincipal() == EstadoPrincipal.NINGUNO){
+                pokemon.setEstadoSecundario(habilidad.getEstadoSecundario());
+                pokemon.setContadorEstadoS(habilidad.getDuracion());
+            }else {
+                pokemon.setEstadoPrincipal(habilidad.getEstadoPrincipal());
+                pokemon.setContadorEstadoP(habilidad.getDuracion());
+            }
         }
     }
 
     // Método resultadoMovimientoMejora para resolver habilidades de la clase MovimientoMejora.
     public void resultadoMovimientoMejora(MovimientoMejora habilidad){
         if(habilidad.getBuff() == Mejora.ATAQUE_FISICO){
-            // Sube ataque - x contadorTurno.
-
+            
+            int mejoraAtaque = (int) (this.ataque * 0.2);
+            this.setAtaque(this.ataque + mejoraAtaque);
+            
         }else if(habilidad.getBuff() == Mejora.ATAQUE_ESPECIAL){
             // Sube ataqueEspecial - x contadorTurno.
 
