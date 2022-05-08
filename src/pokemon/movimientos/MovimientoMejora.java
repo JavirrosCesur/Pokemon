@@ -6,13 +6,11 @@ public class MovimientoMejora extends Movimiento {
 
     private int duracion;
     private Mejora buff;
-    private int nivelBuff;
 
     public MovimientoMejora(String nombreHabilidad, int consumo, int duracion, Mejora buff) {
         super(nombreHabilidad, consumo);
         this.duracion = duracion;
         this.buff = buff;
-        this.nivelBuff = 0;
     }
 
     public int getDuracion() {
@@ -20,8 +18,5 @@ public class MovimientoMejora extends Movimiento {
     }
     public Mejora getBuff() {
         return buff;
-    }
-    public int getNivelBuff() {
-        return nivelBuff;
     }
 }
