@@ -1,0 +1,9 @@
+INTERACCION DE MOVIMIENTO ESTADO:
+
+CONGELADO no afecta a HIELO.
+DORMIDO afecta a todos.
+ENVENENADO no afecta a VENENO, ACERO.
+PARALIZADO no afecta a ELECTRICO.
+QUEMADO no afecta a FUEGO.
+
+CONFUSO afecta a todos.
