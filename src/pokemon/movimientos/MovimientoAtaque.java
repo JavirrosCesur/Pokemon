@@ -1,6 +1,6 @@
 package Pokemon.src.pokemon.movimientos;
 
-import Pokemon.src.pokemon.enumerados.Tipo;
+import Pokemon.src.pokemon.enumerados.*;
 
 public class MovimientoAtaque extends Movimiento {
 
