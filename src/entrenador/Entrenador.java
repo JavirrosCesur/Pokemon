@@ -93,6 +93,11 @@ public class Entrenador {
         }
     }
 
+    public boolean liberarPokemon(int numero){
+        this.caja.remove(numero);
+        return true;
+    }
+
     public void nombrarPokemon(Pokemon pokemon, String nombre) {
         pokemon.setMote(nombre);
     }
