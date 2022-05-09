@@ -1,7 +1,7 @@
-package combate;
+package Pokemon.src.combate;
 
-import entrenador.Entrenador;
-import pokemon.Pokemon;
+import Pokemon.src.entrenador.Entrenador;
+import Pokemon.src.pokemon.*;
 
 public class CombateSalvaje extends Combate{
 

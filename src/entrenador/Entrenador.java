@@ -1,7 +1,7 @@
-package entrenador;
+package Pokemon.src.entrenador;
 
 import java.util.ArrayList;
-import pokemon.Pokemon;
+import Pokemon.src.pokemon.*;
 
 public class Entrenador {
 
