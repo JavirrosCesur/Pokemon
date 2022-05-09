@@ -745,14 +745,14 @@ public class Pokemon {
         habilidad.setVentajaTotal(habilidad.getVentaja1() * habilidad.getVentaja2());
 
         if(habilidad.getFisEsp() == FisicoEspecial.FISICO){
-            habilidad.setDanyo((int) (habilidad.getPotencia() * habilidad.getVentajaTotal() + this.getAtaqueMejora()));
+            habilidad.setDanyo((int)(habilidad.getPotencia() * habilidad.getVentajaTotal() + this.getAtaqueMejora()));
             if(habilidad.getDanyo() - pokemon.getDefensaMejora() > 0){
                 pokemon.setVitalidadActual(pokemon.getVitalidadActual() - 
                 (habilidad.getDanyo() - pokemon.getDefensaMejora()));
             }
 
         }else{
-            habilidad.setDanyo((int) (habilidad.getPotencia() * habilidad.getVentajaTotal() + this.getAtaqueEspecialMejora()));
+            habilidad.setDanyo((int)(habilidad.getPotencia() * habilidad.getVentajaTotal() + this.getAtaqueEspecialMejora()));
             if(habilidad.getDanyo() - pokemon.getDefensaEspecialMejora() >  0){
                 pokemon.setVitalidadActual(pokemon.getVitalidadActual() - 
                 (habilidad.getDanyo() - pokemon.getDefensaEspecialMejora()));
@@ -798,19 +798,35 @@ public class Pokemon {
     // Método resultadoMovimientoMejora para resolver habilidades de la clase MovimientoMejora.
     public void resultadoMovimientoMejora(MovimientoMejora habilidad){
         if(habilidad.getBuff() == Mejora.ATAQUE_FISICO){
-            this.setAtaqueMejora((int)(this.ataqueMejora * 1.2));
+            if(habilidad.getNivelDeBuff() == 2){
+                this.setAtaqueMejora((int)(this.ataqueMejora * 1.4));
+            }else{
+                this.setAtaqueMejora((int)(this.ataqueMejora * 1.2));
+            }
             this.setContadorMejoraAtaque(habilidad.getDuracion());
             
         }else if(habilidad.getBuff() == Mejora.ATAQUE_ESPECIAL){
-            this.setAtaqueEspecialMejora((int)(this.ataqueEspecialMejora * 1.2));
+            if(habilidad.getNivelDeBuff() == 2){
+                this.setAtaqueEspecialMejora((int)(this.ataqueEspecialMejora * 1.4));
+            }else{
+                this.setAtaqueEspecialMejora((int)(this.ataqueEspecialMejora * 1.2));
+            }
             this.setContadorMejoraAtEspecial(habilidad.getDuracion());
 
         }else if(habilidad.getBuff() == Mejora.DEFENSA_FISICA){
-            this.setDefensaMejora((int)(this.defensaMejora * 1.2));
+            if(habilidad.getNivelDeBuff() == 2){
+                this.setDefensaMejora((int)(this.defensaMejora * 1.4));
+            }else{
+                this.setDefensaMejora((int)(this.defensaMejora * 1.2));
+            }
             this.setContadorMejoraDefensa(habilidad.getDuracion());
 
         }else if(habilidad.getBuff() == Mejora.DEFENSA_ESPECIAL){
-            this.setDefensaEspecialMejora((int)(this.defensaEspecialMejora * 1.2));
+            if(habilidad.getNivelDeBuff() == 2){
+                this.setDefensaEspecialMejora((int)(this.defensaEspecialMejora * 1.4));
+            }else{
+                this.setDefensaEspecialMejora((int)(this.defensaEspecialMejora * 1.2));
+            }
             this.setContadorMejoraDefEspecial(habilidad.getDuracion());
 
         }else if(habilidad.getBuff() == Mejora.VELOCIDAD){
