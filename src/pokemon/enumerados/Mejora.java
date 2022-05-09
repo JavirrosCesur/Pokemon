@@ -1,4 +1,4 @@
-package enumerados;
+package pokemon.enumerados;
 
 public enum Mejora {
     ATAQUE_FISICO,
