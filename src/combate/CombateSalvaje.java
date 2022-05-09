@@ -3,11 +3,27 @@ package combate;
 import entrenador.Entrenador;
 import pokemon.Pokemon;
 
-public class CombateSalvaje extends Combate{
+public class CombateSalvaje extends Combate {
 
-    CombateSalvaje(Entrenador ganador, Entrenador jugador, Entrenador rival, Turnos turno, int koRival, int koJugador,
-            Pokemon pokemonActivPokemon) {
-        super(ganador, jugador, rival, turno, koRival, koJugador, pokemonActivPokemon);
+    private Pokemon pokemonRival;
+
+    CombateSalvaje(Entrenador jugador, Turnos turno, Pokemon pokemonRival) {
+        super(jugador, turno);
+        this.pokemonRival = pokemonRival;
     }
-    
+
+    public Pokemon getPokemonRival() {
+        return pokemonRival;
+    }
+
+    public void setPokemonRival(Pokemon pokemonRival) {
+        this.pokemonRival = pokemonRival;
+    }
+
+    @Override
+    public boolean huir() {
+        System.out.println("¡Has escapado con  exito!");
+        return true;
+    }
+
 }
