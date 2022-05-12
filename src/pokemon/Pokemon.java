@@ -857,7 +857,11 @@ public class Pokemon {
             this.setContadorMejoraDefEspecial(habilidad.getDuracion());
 
         }else if(habilidad.getBuff() == Mejora.VELOCIDAD){
-            this.setVelocidadMejora((int)(this.velocidadMejora * 1.2));
+            if(habilidad.getNivelDeBuff() == 2){
+                this.setVelocidadMejora((int)(this.velocidadMejora * 1.4));
+            }else{
+                this.setVelocidadMejora((int)(this.velocidadMejora * 1.2));
+            }
             this.setContadorMejoraVelocidad(habilidad.getDuracion());
         }
     }

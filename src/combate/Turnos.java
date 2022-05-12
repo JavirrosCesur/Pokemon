@@ -6,8 +6,12 @@ public class Turnos {
     private String accionJugador;
     private String accionRival;
     
+    public Turnos(int numeroTurno, String accionJugador, String accionRival){
+        this.numeroTurno = numeroTurno;
+        this.accionJugador = accionJugador;
+        this.accionRival = accionRival;
+    }
 
-    
     public int getNumeroTurno() {
         return numeroTurno;
     }
@@ -18,8 +22,8 @@ public class Turnos {
         return accionRival;
     }
 
-    public void setNumeroTurno() {
-        for(numeroTurno = 0; numeroTurno < 99; numeroTurno++);
+    public void setNumeroTurno(int numeroTurno) {
+        this.numeroTurno = numeroTurno;
     }
     public void setAccionJugador(String accionJugador) {
         this.accionJugador = accionJugador;

@@ -87,6 +87,7 @@ public class Entrenador {
                 return false;
             } else if (this.equipo.size() <= 3) {
                 this.equipo.add(this.caja.get(numero));
+                this.caja.remove(numero);
                 System.out.println(this.caja.get(numero).getMote() + " fue añadido al equipo.");
                 return true;
             }
