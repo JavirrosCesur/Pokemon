@@ -108,7 +108,9 @@ public class Entrenador {
         if (ratio == 0) {
             System.out.println("El pokemon se ha escapado.");
             return false;
-        } else {
+        } 
+        
+        else {
             System.out.println("Has capturado al pokemon");
             if (this.equipo.size() == 4) {
                 this.caja.add(pokemon);
