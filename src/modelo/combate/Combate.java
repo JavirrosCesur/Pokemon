@@ -1,10 +1,13 @@
-package Pokemon.src.combate;
+package Pokemon.src.modelo.combate;
 
-import Pokemon.src.entrenador.Entrenador;
+import java.util.ArrayList;
+import java.util.List;
+
+import Pokemon.src.modelo.entrenador.Entrenador;
 
 public class Combate {
 
-    private Turnos turno;
+    private List<Turno> turnos;
     private Entrenador jugador;
     private Entrenador rival;
     private int koJugador;
@@ -12,8 +15,8 @@ public class Combate {
     private Entrenador ganador;
     private Entrenador perdedor;
 
-    Combate(Turnos turno, Entrenador jugador, Entrenador rival, Entrenador ganador, Entrenador perdedor) {
-        this.turno = turno;
+    Combate(Entrenador jugador, Entrenador rival, Entrenador ganador, Entrenador perdedor) {
+        this.turnos = new ArrayList<>();
         this.jugador = jugador;
         this.rival = rival;
         this.koJugador = 0;
@@ -22,8 +25,8 @@ public class Combate {
         this.perdedor = perdedor;
     }
 
-    public Turnos getTurno() {
-        return turno;
+    public List<Turno> getTurnos() {
+        return turnos;
     }
 
     public Entrenador getJugador() {
@@ -50,8 +53,8 @@ public class Combate {
         return perdedor;
     }
 
-    public void setTurno(Turnos turno) {
-        this.turno = turno;
+    public void setTurnos(List<Turno> turnos) {
+        this.turnos = turnos;
     }
 
     public void setJugador(Entrenador jugador) {
