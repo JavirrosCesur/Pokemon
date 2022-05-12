@@ -1,6 +1,6 @@
-package Pokemon.src.pokemon.movimientos;
+package Pokemon.src.modelo.pokemon.movimientos;
 
-import Pokemon.src.pokemon.enumerados.*;
+import Pokemon.src.modelo.pokemon.enumerados.*;
 
 public class MovimientoMejora extends Movimiento {
 

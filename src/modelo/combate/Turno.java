@@ -1,13 +1,15 @@
-package Pokemon.src.combate;
+package Pokemon.src.modelo.combate;
 
-public class Turnos {
+public class Turno {
     
     private int numeroTurno;
     private String accionJugador;
     private String accionRival;
-    
-    public Turnos(int numeroTurno, String accionJugador, String accionRival){
-        this.numeroTurno = numeroTurno;
+    private static int contadorTurnos = 0;
+
+    public Turno(String accionJugador, String accionRival){
+        this.addContadorTurnos();
+        this.numeroTurno = contadorTurnos;
         this.accionJugador = accionJugador;
         this.accionRival = accionRival;
     }
@@ -22,6 +24,10 @@ public class Turnos {
         return accionRival;
     }
 
+    public static int getContadorTurnos() {
+        return contadorTurnos;
+    }
+
     public void setNumeroTurno(int numeroTurno) {
         this.numeroTurno = numeroTurno;
     }
@@ -30,5 +36,9 @@ public class Turnos {
     }
     public void setAccionRival(String accionRival) {
         this.accionRival = accionRival;
+    }
+
+    public void addContadorTurnos(){
+        contadorTurnos++;
     }
 }

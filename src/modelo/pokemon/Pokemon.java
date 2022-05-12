@@ -1,8 +1,9 @@
-package Pokemon.src.pokemon;
+package Pokemon.src.modelo.pokemon;
 
 import java.util.ArrayList;
-import Pokemon.src.pokemon.enumerados.*;
-import Pokemon.src.pokemon.movimientos.*;
+
+import Pokemon.src.modelo.pokemon.enumerados.*;
+import Pokemon.src.modelo.pokemon.movimientos.*;
 
 public class Pokemon {
 

@@ -1,10 +1,10 @@
-package Pokemon.src.entrenador;
+package Pokemon.src.modelo.entrenador;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import Pokemon.src.pokemon.*;
-import Pokemon.src.pokemon.movimientos.Movimiento;
+import Pokemon.src.modelo.pokemon.*;
+import Pokemon.src.modelo.pokemon.movimientos.Movimiento;
 
 public class Entrenador {
 
@@ -67,7 +67,6 @@ public class Entrenador {
             System.out.println("No puedes tener menos de un pokemon en el equipo.");
             return false;
         }
-
         else {
             System.out.println("Has dejado a " + this.equipo.get(numero).getMote() + " en la caja.");
             this.caja.add(this.equipo.get(numero));
@@ -178,4 +177,11 @@ public class Entrenador {
         return "Tu equipo esta fresco como una rosa.";
     }
 
+    public boolean entrenarPokemon(int numPokemon, int cantidadPokeDollars){
+        return false;
+    }
+
+    public boolean criarPokemon(int pokemonUno, int pokemonDos){
+        return false;
+    }
 }
