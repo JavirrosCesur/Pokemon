@@ -41,4 +41,8 @@ public class Turno {
     public void addContadorTurnos(){
         contadorTurnos++;
     }
+
+    public void resetContadorTurnos(){
+        contadorTurnos = 0;
+    }
 }
