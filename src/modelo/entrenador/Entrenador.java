@@ -115,7 +115,9 @@ public class Entrenador {
             if (this.equipo.size() == 4) {
                 this.caja.add(pokemon);
                 System.out.println(pokemon.getNombre() + " ha sido añadido a la caja.");
-            } else {
+            } 
+            
+            else {
                 this.equipo.add(pokemon);
                 System.out.println(pokemon.getNombre() + " ha sido añadido a tu equipo.");
             }
